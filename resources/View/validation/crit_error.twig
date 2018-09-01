@@ -1,0 +1,36 @@
+{% extends "/layout/app.twig" %}
+
+{% block title %}Critical Error{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/template.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="template">
+        <div>
+            <h1>Payment validation</h1>
+        </div>
+        <div class="click">
+            <h3>Critical error has occurred</h3>
+            {% if not error.mail %}
+                <p>Email data not found</p>
+            {% endif %}
+            {% if not error.number %}
+                <p>Card number data not found</p>
+            {% endif %}
+            {% if not error.month %}
+                <p>Expiration month data not found</p>
+            {% endif %}
+            {% if not error.year %}
+                <p>Expiration year data not found</p>
+            {% endif %}
+            {% if not error.cvv2 %}
+                <p>CVV2 data not found</p>
+            {% endif %}
+            <a class="button" href="{{ path_for('main.page') }}">Main page</a>
+        </div>
+    </div>
+
+{% endblock %}

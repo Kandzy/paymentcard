@@ -1,0 +1,26 @@
+{% extends "/layout/app.twig" %}
+
+{% block title %}Result{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/template.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="template">
+        <div>
+            <h1>Payment validation</h1>
+        </div>
+        <div class="click">
+            <h3>Result about validation</h3>
+            <p>{{ result.card.value }} : {% if result.card.status.error %} false <br> Error: {{ result.card.status.msg }} {% else %} true {% endif %}</p>
+            <p>{{ result.email.value }} : {% if result.email.status.error %} false <br> Error: {{ result.email.status.msg }} {% else %} true {% endif %}</p>
+            <p>{{ result.expdate.value }} : {% if result.expdate.status.error %} false <br> Error: {{ result.expdate.status.msg }} {% else %} true {% endif %}</p>
+            <p>{{ result.cvv2.value }} : {% if result.cvv2.status.error %} false <br> Error: {{ result.cvv2.status.msg }} {% else %} true {% endif %}</p>
+            <a class="button" href="{{ path_for('main.page') }}">Main page</a>
+
+        </div>
+    </div>
+
+{% endblock %}

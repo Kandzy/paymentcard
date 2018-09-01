@@ -1,0 +1,19 @@
+{% extends "layout/app.twig" %}
+
+{% block title %}Main{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/template.css">
+{% endblock %}
+
+{% block content %}
+    <div class="template">
+        <div>
+            <h1>Payment validation</h1>
+        </div>
+        <div class="click">
+            <h3>Hello! Here you can validate your card.</h3>
+            <a class="button" href="{{ path_for('page.validation') }}">Check card</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,99 @@
+a.button {
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
+a.button:hover { background: rgba(255,255,255,.2); }
+a.button:active { background: #ff7e00; }
+
+div.template{
+    margin-top: 170px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+div.click{
+    background-color: #ffb200;
+    padding: 1vw;
+    width: 100%;
+}
+
+h1{
+    color: #ff7e00;
+}
+
+form.formclass{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+div.field{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 300px;
+}
+
+input.input{
+    width: 170px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c0c0c0;
+    font-family: "Open Sans",sans-serif;
+    font-size: 14px;
+    color: #5a5a5a;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow:rgba(0, 0, 0, 0.15) 2px 3px 5px 0px;
+    height: auto;
+    /*min-height: 44px;*/
+    padding: 4px 10px 0;
+}
+
+button.validate {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0);
+    font-weight: 700;
+    color: white;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid white;
+    border-radius: 1px;
+    transition: 0.2s;
+    height: 38px;
+    width: 130px;
+}
+button.validate:hover { background: rgba(255,255,255,.2); }
+button.validate:active { background: #ff7e00; }
+
+#cc-num::-webkit-input-placeholder { color: black; font-size: 22px }
+#cc-num::-moz-placeholder          { color: black; } /* Firefox 19+ */
+#cc-num:-moz-placeholder           { color: black; } /* Firefox 18- */
+#cc-num:-ms-input-placeholder      { color: black; }
+
+#email::-webkit-input-placeholder { color: grey; }
+#email::-moz-placeholder          { color: grey; } /* Firefox 19+ */
+#email:-moz-placeholder           { color: grey; } /* Firefox 18- */
+#email:-ms-input-placeholder      { color: grey; }
+
+button.PCN_CVV{
+    height: 30px;
+    width: 30px;
+}

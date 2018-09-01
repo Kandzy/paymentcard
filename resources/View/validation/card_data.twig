@@ -1,0 +1,96 @@
+{% extends "/layout/app.twig" %}
+
+{% block title %}Validation{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="{{ base_url() }}/css/template.css">
+    <script type="text/javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.11.0.min.js"></script>
+    <script src="/actions.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="template">
+        <div>
+            <h1>Payment validation</h1>
+        </div>
+        <div class="click">
+            <h3>Enter your card information</h3>
+           <form class="formclass" action="{{ path_for('validation') }}" method="post">
+               <div class="field" >
+                   <label for="email">Email</label>
+                   <input id="email" class="input" placeholder="Email@example.dom" type="email" name="Email" required="required">
+               </div>
+               <br>
+               <div class="field">
+                   <label for="cardnumber">Card number</label>
+                   <input id="cc-num" autocomplete="cc-number" placeholder="•••• •••• •••• ••••" class="input" type="tel" name="CardNumber" maxlength="19" required="required">
+               </div>
+               <br>
+               <div class="field" >
+                   {#{{ info.year }}#}
+                   <label for="Expiration">Expiration date</label>
+                   <div>
+                       <select name="ExpirationMonth">
+                           {% for i in 01..12 %}
+                               <option>{{ i }}</option>
+                           {% endfor %}
+                       </select>
+                       <span>/</span>
+                       <select name="ExpirationYear">
+                           {% for i in  info.year-2000 .. info.year + 5-2000 %}
+                               <option>{{ i }}</option>
+                           {% endfor %}
+                       </select>
+                   </div>
+               </div>
+               <br>
+               <div class="field cv">
+                   <label for="cvv">CVV2</label>
+                   <input id="cvv" class="input" type="password" name="CVV2" maxlength="3" required="required">
+               </div>
+               <div id="panel" style="display: none; margin-left: 130px">
+                   <table>
+                       <tr>
+                           <td><button id="PCN_CCV_B1" class="PCN_CVV" type="button">1</button></td>
+                           <td><button id="PCN_CCV_B2" class="PCN_CVV" type="button">2</button></td>
+                           <td><button id="PCN_CCV_B3" class="PCN_CVV" type="button">3</button></td>
+                       </tr>
+                       <tr>
+                           <td><button id="PCN_CCV_B4" class="PCN_CVV" type="button">4</button></td>
+                           <td><button id="PCN_CCV_B5" class="PCN_CVV" type="button">5</button></td>
+                           <td><button id="PCN_CCV_B6" class="PCN_CVV" type="button">6</button></td>
+                       </tr>
+                       <tr>
+                           <td><button id="PCN_CCV_B7" class="PCN_CVV" type="button">7</button></td>
+                           <td><button id="PCN_CCV_B8" class="PCN_CVV" type="button">8</button></td>
+                           <td><button id="PCN_CCV_B9" class="PCN_CVV" type="button">9</button></td>
+                       </tr>
+                       <tr>
+                           <td></td>
+                           <td><button id="PCN_CCV_B10" class="PCN_CVV" type="button">0</button></td>
+                           <td><button id="PCN_CCV_CLR" class="PCN_CVV" type="button">C</button></td>
+                       </tr>
+                   </table>
+               </div>
+               <br>
+               <button class="validate">Validate</button>
+               <br>
+           </form>
+            <a class="button" href="{{ path_for('main.page') }}">Main page</a>
+
+        </div>
+    </div>
+    <script>
+        var cardcode = document.getElementById('cc-num');
+        for (var i in ['input', 'change', 'blur', 'keyup']) {
+            cardcode.addEventListener('input', formatCardCode, false);
+        }
+        function formatCardCode() {
+            var cardCode = this.value.replace(/[^\d]/g, '');
+            cardCode = cardCode != '' ? cardCode.match(/.{1,4}/g).join(' ') : '';
+            this.value = cardCode;
+        }
+    </script>
+
+{% endblock %}
