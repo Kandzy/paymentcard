@@ -7,7 +7,6 @@
  */
 
 header("Access-Control-Allow-Origin: *");
-//header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 
 require __DIR__."/../boot/app.php";
 

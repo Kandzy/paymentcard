@@ -22,10 +22,4 @@ $app->group('/payment', function (){
     })->setName("page.validation");
 
     $this->post('/validation', ValidationController::class.":index")->setName("validation");
-
-//    $this->get('/validation/result', function ($request, $response){
-//        $params = $request->getParams();
-////        var_dump($params);
-//        echo "result";
-//    })->setName("validation.result");
 });

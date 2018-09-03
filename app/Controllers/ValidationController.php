@@ -54,7 +54,7 @@ class ValidationController extends Controller
     private function validateCVV2($cvv2){
         $len = strlen($cvv2);
         $errormsg['error'] = false;
-        if ($len < 3 || $len > 3)
+        if ($len != 3)
         {
             $errormsg = [
                 'error' => true,
@@ -109,7 +109,9 @@ class ValidationController extends Controller
                     $val = $num[$i];
                 } else {
                     $val = $num[$i] * 2;
-                    if ($val > 9)  $val -= 9;
+                    if ($val > 9) {
+                        $val -= 9;
+                    }
                 }
                 $sum += $val;
             }
